@@ -1,0 +1,38 @@
+fragment PokemonDetails on Pokemon {
+  id
+  name
+  url
+}
+
+query Trainer($name: String!) {
+  Trainer(name: $name) {
+    id
+    name
+    ownedPokemons {
+      ... PokemonDetails
+    }
+  }
+}
+
+mutation CreatePokemon($name: String!, $url: String!, $trainerId: ID!) {
+  createPokemon(name: $name, url: $url, trainerId: $trainerId) {
+    ... PokemonDetails
+  }
+}
+
+mutation DeletePokemon($id: ID!) {
+  deletePokemon(id: $id) {
+    trainer {
+      ownedPokemons {
+        id
+        name
+      }
+    }
+  }
+}
+
+mutation UpdatePokemon($id: ID!, $name: String!, $url: String!) {
+  updatePokemon(id: $id, name: $name, url: $url) {
+    ... PokemonDetails
+  }
+}
