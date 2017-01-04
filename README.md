@@ -8,3 +8,5 @@ The app runs against a GraphQL backend from [Graphcool](www.graph.cool) and impl
 - Deleting a Pokemon from the Pokedex
 
 It uses GraphQL [queries](http://graphql.org/learn/queries/), [mutations](http://graphql.org/learn/queries/#mutations) and [fragments](http://graphql.org/learn/queries/#fragments).
+
+Find out about more Apollo clients on [learnapollo.com](www.learnapollo.com).
