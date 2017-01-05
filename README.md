@@ -11,4 +11,4 @@ It uses GraphQL [queries](http://graphql.org/learn/queries/), [mutations](http:/
 
 Find out about more Apollo clients on [learnapollo.com](www.learnapollo.com).
 
-If you want to learn more about how to use GraphQL, you can check out [learngraphql.com](www.learngraphql.com)
+If you want to learn more about how to use GraphQL, you can check out [learngraphql.com](https://www.learngraphql.com).
