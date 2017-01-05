@@ -18,9 +18,15 @@ class AddPokemonViewController: UIViewController {
   
   var newPokemonAdded: ((PokemonDetails) -> ())?
   
+  
+  // MARK: View Controller Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
+  
+  
+  // MARK: Actions
   
   @IBAction func saveButtonPressed() {
     

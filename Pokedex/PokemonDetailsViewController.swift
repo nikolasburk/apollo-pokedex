@@ -41,6 +41,9 @@ class PokemonDetailsViewController: UIViewController, UINavigationControllerDele
     }
   }
   
+  
+  // MARK: View Controller Life Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Details"
@@ -55,6 +58,9 @@ class PokemonDetailsViewController: UIViewController, UINavigationControllerDele
       updatedPokemonWithDetails?(pokemonDetails)
     }
   }
+  
+  
+  // MARK: Util
   
   func updateUI() {
     // make sure UI elements are there to prevent this from being called before viewDidLoad
@@ -80,6 +86,9 @@ class PokemonDetailsViewController: UIViewController, UINavigationControllerDele
       print(#function, "ERROR: No URL for \(pokemonDetails?.name)")
     }
   }
+  
+  
+  // MARK: Actions
   
   @IBAction func editAndSaveButtonPressed() {
     if editingState == .notEditing {

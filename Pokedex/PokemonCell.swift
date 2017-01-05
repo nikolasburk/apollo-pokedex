@@ -38,7 +38,7 @@ class PokemonCell: UITableViewCell {
   
   func loadImage() {
     if let pokemonURL = pokemonDetails?.url {
-      request = Alamofire.request(pokemonURL).responseImage { response in
+      request = Alamofire.request(pokemonURL).responseImage { [unowned self] response in
         if let image = response.result.value {
           self.pokemonImageView.image = image
         }

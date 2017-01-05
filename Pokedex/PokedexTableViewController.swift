@@ -25,19 +25,27 @@ class PokedexTableViewController: UITableViewController {
     super.viewDidLoad()
     
     title = "Pokedex"
+    fetchPokemonData()
     
-    apollo.fetch(query: TrainerQuery(name: "Nikolas"), completionHandler: { (result: GraphQLResult<TrainerQuery.Data>?, error: Error?) in
+    refreshControl?.addTarget(self, action: #selector(fetchPokemonData), for: .valueChanged)
+  }
+  
+  
+  // MARK: Data Loading
+  
+  func fetchPokemonData() {
+    
+    apollo.fetch(query: TrainerQuery(name: "Nikolas")) { (result: GraphQLResult<TrainerQuery.Data>?, error: Error?) in
       guard let trainer = result?.data?.trainer else {
         print(#function, "ERROR: Did not fetch trainer")
         return
       }
       self.trainer = trainer
       if let ownedPokemons = trainer.ownedPokemons {
-        self.ownedPokemons = ownedPokemons.map { ownedPokemon in
-          return ownedPokemon.fragments.pokemonDetails
-        }
+        self.ownedPokemons = ownedPokemons.map { $0.fragments.pokemonDetails }
       }
-    })
+      self.refreshControl?.endRefreshing()
+    }
     
   }
   
